@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aeroreach</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Boxicons CSS -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+  <!-- Boxicons CSS -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/boxicons/2.0.7/css/boxicons.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      overflow: hidden;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+  
+    /* Styl dla paska przewijania */
+    body::-webkit-scrollbar {
+      width: 12px;
+    }
+  
+    body::-webkit-scrollbar-thumb {
+      background-color: #0e2431;
+      border-radius: 10px;
+    }
+  
+    body::-webkit-scrollbar-track {
+      background-color: #f1f1f1;
+    }
+
+    #video-container {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      overflow: hidden;
+      transition: opacity 1s ease-in-out;
+    }
+
+    h1::before {
+      content: "Symulacja";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 100px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 100%;
+      border-radius: 5px;
+    }
+  
+    h1 {
+      font-size: 300px;
+      font-weight: 600;
+      padding: 300px 40px;
+      color: #fff;
+      margin-top: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: inline-block;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+    h3 {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 15px 20px;
+  margin-top: 190px;
+  color: #fff;
+  position: absolute; /* Zmieniono: Pozycja na absolutną */
+  top: 50%; /* Zmieniono: Ustawienie na środku ekranu */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  font-style: italic;
+  text-align: center;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+  
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+  
+      to {
+        opacity: 1;
+      }
+    }
+  
+    header, main, footer {
+      padding: 20px;
+    }
+
+    header, footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+    }
+
+    footer {
+      background-image: url('Stopka.jpg'); /* Dodaj ścieżkę do własnego obrazka */
+      background-size: cover;
+      background-position: top;
+      padding: 50px; /* Dostosuj padding do własnych potrzeb */
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .timer-container {
+            position: relative;
+        }
+
+        #timer {
+            margin-top: -50px;
+            font-size: 2em;
+            color: #333;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #fff;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        nav {
+      position: absolute;
+      top: 20px;
+      right: 0;
+      width: 80px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+    }
+  
+    nav .nav-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-45deg);
+    }
+  
+    .nav-content .toggle-btn,
+    .nav-content span a {
+      height: 60px;
+      width: 60px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+  
+    .nav-content .toggle-btn {
+      font-size: 35px;
+      color: #0e2431;
+      z-index: 100;
+      cursor: pointer;
+      transform: rotate(-225deg);
+      transition: all 0.6s ease;
+    }
+  
+    nav.open .toggle-btn {
+      transform: rotate(0deg);
+    }
+  
+    .nav-content span {
+      position: absolute;
+      transition: all 0.6s ease;
+      opacity: 0;
+    }
+  
+    nav.open .nav-content span {
+      transform: rotate(calc(var(--i) * (360deg / 8))) translateY(120px);
+      opacity: 1;
+    }
+  
+    .nav-content span a {
+      text-decoration: none;
+      transform: rotate(45deg);
+    }
+  
+    .nav-content span a i {
+      font-size: 24px;
+      color: #0e2431;
+      transform: rotate(calc(var(--i) * (360deg / -8)));
+      opacity: 0.8;
+      transition: 0.2s;
+    }
+  
+    .nav-content span a:hover i {
+      opacity: 1;
+    }
+  </style>
+  
+</head>
+
+<body>
+  <div id="video-container">
+    <video loop autoplay muted>
+      <source src="Back.mp4" type="video/mp4">
+    </video>
+    <h1>Symulacja</h1>
+  </div>
+    <h3 >
+      <p>Symulacja ukaże się dopero w dniu finałów Casata. Do polskch finałów zostało jeszcze:</p>
+    </h3>
+    <div class="timer-container">
+      <div id="timer">00:00:00</div>
+    </div>
+    <nav>
+      <div class="nav-content">
+        <div class="toggle-btn">
+          <i class='bx bx-plus'></i>
+        </div>
+        <span style="--i:1;">
+          <a href="file:///C:/Users/Admin/Desktop/Strona/Main_website/indeks.html"><i class='bx bxs-home'></i></a>
+        </span>
+        <span style="--i:2;">
+          <a href='file:///C:/Users/Admin/Desktop/Strona/Misja/Mission.html'><i class="bx bxs-compass"></i></a>
+        </span>
+        <span style="--i:3;">
+          <a href='file:///C:/Users/Admin/Desktop/Strona/Team/Team.html'><i class="bx bxs-user"></i></a>
+        </span>
+        <span style="--i:4;">
+          <a href="file:///C:/Users/Admin/Desktop/Strona/Aktualności/news.html"><i class='bx bxs-folder'></i></a>
+        </span>
+        <span style="--i:5;">
+          <a href="file:///C:/Users/Admin/Desktop/Strona/Symulacja_website/symulacja.html"><i class='bx bxs-map'></i></a>
+        </span>
+      </div>
+    </nav>
+
+  <script>
+  window.addEventListener("scroll", function () {
+    videos.forEach((video) => {
+      const bounding = video.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Ustaw dowolny próg przewijania, przy którym ma się pojawić efekt
+      const scrollThreshold = windowHeight * 0.4;
+
+      if (bounding.top < scrollThreshold && bounding.bottom > 0) {
+        // Oblicz odległość od krawędzi ekranu
+        const distanceFromTop = scrollThreshold - bounding.top;
+
+        // Oblicz procentową przezroczystość w zależności od odległości
+        const opacity = distanceFromTop / scrollThreshold;
+
+        // Ustaw przezroczystość dla elementu wideo
+        video.style.opacity = opacity.toFixed(2);
+      } else {
+        // Jeżeli element wideo nie jest widoczny, ustaw przezroczystość na 0
+        video.style.opacity = "0";
+      }
+    });
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+            const timerElement = document.getElementById("timer");
+
+            // Zdefiniuj datę docelową
+            const targetDate = new Date("2024-04-21T15:00");
+
+            function updateTimer() {
+                const currentDate = new Date();
+                const timeDifference = targetDate - currentDate;
+
+                if (timeDifference > 0) {
+                    const seconds = Math.floor(timeDifference / 1000) % 60;
+                    const minutes = Math.floor((timeDifference / 1000 / 60) % 60);
+                    const hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
+                    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+                    const formattedTime = `${padZero(days)}:${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
+                    timerElement.textContent = formattedTime;
+                } else {
+                    timerElement.textContent = "Czas minął";
+                }
+            }
+
+            function padZero(value) {
+                return value < 10 ? `0${value}` : value;
+            }
+
+            function startTimer() {
+                setInterval(updateTimer, 1000);
+            }
+
+            startTimer();
+        });
+        const nav = document.querySelector("nav"),
+      toggleBtn = nav.querySelector(".toggle-btn");
+    toggleBtn.addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
+
+    function onDrag({
+      movementY
+    }) {
+      const navStyle = window.getComputedStyle(nav),
+        navTop = parseInt(navStyle.top),
+        navHeight = parseInt(navStyle.height),
+        windHeight = window.innerHeight;
+      nav.style.top = navTop > 0 ? `${navTop + movementY}px` : "1px";
+      if (navTop > windHeight - navHeight) {
+        nav.style.top = `${windHeight - navHeight}px`;
+      }
+    }
+
+    nav.addEventListener("mousedown", () => {
+      nav.addEventListener("mousemove", onDrag);
+    });
+
+    nav.addEventListener("mouseup", () => {
+      nav.removeEventListener("mousemove", onDrag);
+    });
+
+    nav.addEventListener("mouseleave", () => {
+      nav.removeEventListener("mousemove", onDrag);
+    });
+    function navigateToLink() {
+    // Przenosimy na stronę link5.html
+    window.location.href = 'file:///C:/Users/Admin/Desktop/Strona/Misja/Mission.html';
+    }
+    function navigateToLink5() {
+    // Przenosimy na stronę link5.html
+    window.location.href = 'file:///C:/Users/Admin/Desktop/Strona/Team/Team.html';
+  }
+  function navigateToLink6() {
+    // Przenosimy na stronę link5.html
+    window.location.href = 'file:///C:/Users/Admin/Desktop/Strona/Aktualności/news.html';
+  }
+  function navigateToLink7() {
+    // Przenosimy na stronę link5.html
+    window.location.href = "file:///C:/Users/Admin/Desktop/Strona/Symulacja_website/symulacja.html";
+  }
+
+
+  </script>
+  <footer>
+    <p>Kontakt: aeroreach@gmial.com</p>
+    <p>Telefon: 514 361 228</p>
+    <p>&copy; 2024 Aeroreach</p>
+  </footer>
+</body>
+
+</html>

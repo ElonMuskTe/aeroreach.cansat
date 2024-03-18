@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Profle Card UI Design | CoderGirl </title>
+  <!---Custom Css File!--->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Boxicons CSS -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/boxicons/2.0.7/css/boxicons.min.css">
+  <style>
+    header, main, footer {
+      padding: 20px;
+    }
+
+    header, footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+    }
+
+    footer {
+      background-image: url('Stopka.jpg'); /* Dodaj ścieżkę do własnego obrazka */
+      background-size: cover;
+      background-position: top;
+      padding: 50px; /* Dostosuj padding do własnych potrzeb */
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      overflow: hidden;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      background-color: #000000;
+    }
+  
+    /* Styl dla paska przewijania */
+    body::-webkit-scrollbar {
+      width: 12px;
+    }
+  
+    body::-webkit-scrollbar-thumb {
+      background-color: #f8f8f8;
+      border-radius: 10px;
+    }
+  
+    body::-webkit-scrollbar-track {
+      background-color: #f1f1f1;
+    }
+
+    #video-container {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      overflow: hidden;
+      transition: opacity 1s ease-in-out;
+    }
+
+    h1::before {
+  content: "Poznaj nasz zespół";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 5vw; /* Używamy jednostek viewport width dla font-size */
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 100vw; /* Używamy jednostek viewport width dla padding */
+  border-radius: 5px;
+  width: auto;
+}
+
+h1 {
+  font-size: 10vw; /* Używamy jednostek viewport width dla font-size */
+  font-weight: 600;
+  padding: 5vw 2vw; /* Używamy jednostek viewport width dla padding */
+  color: #fff;
+  margin-top: 5%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: inline-block;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+    h3 {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 15px 20px;
+  margin-top: 260px;
+  color: #fff;
+  position: absolute; /* Zmieniono: Pozycja na absolutną */
+  top: 50%; /* Zmieniono: Ustawienie na środku ekranu */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  font-style: italic;
+  text-align: center;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+  
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+  
+      to {
+        opacity: 1;
+      }
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-size: cover;
+}
+
+.card-container {
+  display: flex;
+}
+
+.profile-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+  padding: 100px;
+  border: 1px solid #ffffff40;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  margin-right: 10px; /* Odstęp między kartami */
+}
+
+.image {
+  position: relative;
+  height: 300px;
+  width: 300px;
+}
+
+.image .profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  color: #555;
+}
+
+.data h2 {
+  font-size: 60px;
+  font-weight: 600;
+  margin-top: 30px;
+  color: #555;
+}
+
+span {
+  font-size: 30px;
+  color: #555;
+}
+
+.text-next-to-image {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #555;
+}
+
+nav {
+      position: absolute;
+      top: 20px;
+      right: 0;
+      width: 80px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+    }
+  
+    nav .nav-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-45deg);
+    }
+  
+    .nav-content .toggle-btn,
+    .nav-content span a {
+      height: 60px;
+      width: 60px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+  
+    .nav-content .toggle-btn {
+      font-size: 35px;
+      color: #0e2431;
+      z-index: 100;
+      cursor: pointer;
+      transform: rotate(-225deg);
+      transition: all 0.6s ease;
+    }
+  
+    nav.open .toggle-btn {
+      transform: rotate(0deg);
+    }
+  
+    .nav-content span {
+      position: absolute;
+      transition: all 0.6s ease;
+      opacity: 0;
+    }
+  
+    nav.open .nav-content span {
+      transform: rotate(calc(var(--i) * (360deg / 8))) translateY(120px);
+      opacity: 1;
+    }
+  
+    .nav-content span a {
+      text-decoration: none;
+      transform: rotate(45deg);
+    }
+  
+    .nav-content span a i {
+      font-size: 24px;
+      color: #0e2431;
+      transform: rotate(calc(var(--i) * (360deg / -8)));
+      opacity: 0.8;
+      transition: 0.2s;
+    }
+  
+    .nav-content span a:hover i {
+      opacity: 1;
+    }
+
+ 
+  </style>
+  
+</head>
+
+<body>
+  <div id="video-container">
+    <video loop autoplay muted>
+      <source src="Team_main.mp4" type="video/mp4">
+    </video>
+    <h1>Symulacja</h1>
+  </div>
+    <h3 >
+      <p>"Siłą jest zespół! Można dużo zrobić w pojedynkę, ale największe sukcesy osiąga się przy wsparciu innych."</p>
+      <p> PIOTR ŚLIWIŃSKI</p>
+    </h3>
+    <section class="main">
+        <div class="profile-card">
+          <div class="image">
+            <img src="Jakub.jpg" alt="" class="profile-pic">
+          </div>
+          <div class="data">
+            <h2>Jakub Szydlik</h2>
+            <span>Leader & Physicist Programmer</span>
+            <span></span>
+            <span></span>
+
+            <p class="text-next-to-image">Jakub- to geniusz informatyczny oraz fizyczny, który pasjonuje się kodowaniem i technologią. Jego umiejętności programistyczne są nieocenione w projekcie CanSat. Nie zajmuje się tylko programowaniem, ale również jest liderem. Jego zaangażowanie i determinacja motywują zespół do osiągania coraz większych sukcesów. </p>
+          </div>
+          </div>
+        </div>
+      </section>
+      <section class="main">
+        <div class="profile-card">
+          <div class="image">
+            <img src="Piotr.jpg" alt="" class="profile-pic">
+          </div>
+          <div class="data">
+            <h2>Piotr Dziedzicki</h2>
+            <span>Leader & Designer Social Media</span>
+            <span></span>
+            <span></span>
+
+            <p class="text-next-to-image">Piotr- od zawsze interesował się elektroniką. Jego zdolności techniczne sprawiają, że jest niezastąpiony w projekcie CanSat, gdzie odpowiada za konstrukcję mechaniczną i elektroniczną satelity. Piotr również odpowiada za koordynację działań, projektowanie systemów oraz analizę danych.</p>
+          </div>
+          </div>
+        </div>
+      </section>
+      <section class="main">
+        <div class="profile-card">
+          <div class="image">
+            <img src="Filip.jpg" alt="" class="profile-pic">
+          </div>
+          <div class="data">
+            <h2>Filip Skundlarz</h2>
+            <span> Programmer & Engineer</span>
+            <span>link do Fb</span>
+            <span> link do ig</span>
+
+            <p class="text-next-to-image">Filip  tak jak Piotr od zawsze interesował się elektroniką. Jego zdolności techniczne i programistyczna sprawiają, że jest niezastąpiony w projekcie CanSat, gdzie odpowiada za konstrukcję mechaniczną i elektroniczną satelity.</p>
+          </div>
+          </div>
+        </div>
+      </section>
+      <section class="main">
+        <div class="profile-card">
+          <div class="image">
+            <img src="Paula.jpg" alt="" class="profile-pic">
+          </div>
+          <div class="data">
+            <h2>Paulina Zieja</h2>
+            <span>Sponsors & Social Media</span>
+            <span>link do Fb</span>
+            <span> link do ig</span>
+
+            <p class="text-next-to-image">Zieja- nie tylko promuje projekt w mediach społecznościowych, ale również poszukuje sponsorów. Jej pasja do sportu, towarzyska dusza i miłość do wyzwań sprawiają, że jest niezastąpioną siłą napędową tego przedsięwzięcia.</p>
+          </div>
+          </div>
+        </div>
+      </section>
+      <section class="main">
+        <div class="profile-card">
+          <div class="image">
+            <img src="Ania.jpg" alt="" class="profile-pic">
+          </div>
+          <div class="data">
+            <h2>Ania Ejsmont</h2>
+            <span>Translator & Graphic Designer</span>
+            <span>link do Fb</span>
+            <span> link do ig</span>
+
+            <p class="text-next-to-image">Ania- od lat fascynuje się językiem angielskim. Jest nie tylko zdolną uczennicą, ale jej zaangażowanie i determinacja motywują zespół do osiągania coraz większych sukcesów.</p>
+          </div>
+          </div>
+        </div>
+      </section>
+      <nav>
+        <div class="nav-content">
+          <div class="toggle-btn">
+            <i class='bx bx-plus'></i>
+          </div>
+          <span style="--i:1;">
+            <a href="file:///C:/Users/Admin/Desktop/Strona/Main_website/indeks.html"><i class='bx bxs-home'></i></a>
+          </span>
+          <span style="--i:2;">
+            <a href='file:///C:/Users/Admin/Desktop/Strona/Misja/Mission.html'><i class="bx bxs-compass"></i></a>
+          </span>
+          <span style="--i:3;">
+            <a href='file:///C:/Users/Admin/Desktop/Strona/Team/Team.html'><i class="bx bxs-user"></i></a>
+          </span>
+          <span style="--i:4;">
+            <a href="file:///C:/Users/Admin/Desktop/Strona/Aktualności/news.html"><i class='bx bxs-folder'></i></a>
+          </span>
+          <span style="--i:5;">
+            <a href="file:///C:/Users/Admin/Desktop/Strona/Symulacja_website/symulacja.html"><i class='bx bxs-map'></i></a>
+          </span>
+        </div>
+      </nav>
+
+  <script>
+  window.addEventListener("scroll", function () {
+    videos.forEach((video) => {
+      const bounding = video.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Ustaw dowolny próg przewijania, przy którym ma się pojawić efekt
+      const scrollThreshold = windowHeight * 0.4;
+
+      if (bounding.top < scrollThreshold && bounding.bottom > 0) {
+        // Oblicz odległość od krawędzi ekranu
+        const distanceFromTop = scrollThreshold - bounding.top;
+
+        // Oblicz procentową przezroczystość w zależności od odległości
+        const opacity = distanceFromTop / scrollThreshold;
+
+        // Ustaw przezroczystość dla elementu wideo
+        video.style.opacity = opacity.toFixed(2);
+      } else {
+        // Jeżeli element wideo nie jest widoczny, ustaw przezroczystość na 0
+        video.style.opacity = "0";
+      }
+    });
+  });
+  const nav = document.querySelector("nav"),
+      toggleBtn = nav.querySelector(".toggle-btn");
+    toggleBtn.addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
+
+    function onDrag({
+      movementY
+    }) {
+      const navStyle = window.getComputedStyle(nav),
+        navTop = parseInt(navStyle.top),
+        navHeight = parseInt(navStyle.height),
+        windHeight = window.innerHeight;
+      nav.style.top = navTop > 0 ? `${navTop + movementY}px` : "1px";
+      if (navTop > windHeight - navHeight) {
+        nav.style.top = `${windHeight - navHeight}px`;
+      }
+    }
+
+    nav.addEventListener("mousedown", () => {
+      nav.addEventListener("mousemove", onDrag);
+    });
+
+    nav.addEventListener("mouseup", () => {
+      nav.removeEventListener("mousemove", onDrag);
+    });
+
+    nav.addEventListener("mouseleave", () => {
+      nav.removeEventListener("mousemove", onDrag);
+    });
+    function navigateToLink() {
+    // Przenosimy na stronę link5.html
+    window.location.href = 'file:///C:/Users/Admin/Desktop/Strona/Misja/Mission.html';
+    }
+    function navigateToLink5() {
+    // Przenosimy na stronę link5.html
+    window.location.href = 'file:///C:/Users/Admin/Desktop/Strona/Team/Team.html';
+  }
+  function navigateToLink6() {
+    // Przenosimy na stronę link5.html
+    window.location.href = 'file:///C:/Users/Admin/Desktop/Strona/Aktualności/news.html';
+  }
+  function navigateToLink7() {
+    // Przenosimy na stronę link5.html
+    window.location.href = "file:///C:/Users/Admin/Desktop/Strona/Symulacja_website/symulacja.html";
+  }
+
+
+  </script>
+    <footer>
+        <p>Kontakt: aeroreach@gmial.com</p>
+        <p>Telefon: 514 361 228</p>
+        <p>&copy; 2024 Aeroreach</p>
+      </footer>
+</body>
+
+</html>
